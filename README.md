@@ -8,6 +8,9 @@ Mysql JDK 17 Create a database name hms in MySQL Change the user name and passwo
 
 Setup project as a maven project in IntelliJ,STS , VS code or any other code IDE which supports Java development It will download all the dependencies present in the pom.xml. Now run the main method of the project or setup project SDK and run the project. Project will run on an 8084 port or you can change the port from the application.properties file by changing the value of appilication.properties.
 
+#Swagger Link for api description 
+Swagger link - http://localhost:8084/swagger-ui/index.html#/
+
 #Public Api
 
 Signup api - curl --location 'localhost:8084/auth/signup'
