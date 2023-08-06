@@ -1,11 +1,15 @@
 package com.hms.entities;
 
 import com.hms.enums.UserRole;
+import com.hms.validations.UniqueUsername;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Normalized;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,10 +25,11 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Entity
 public class HospitalStaff extends  User implements UserDetails{
-
-
-    @Column
+    @NotEmpty(message = "userName can't be null or empty")
+    @Column(unique = true,nullable = false)
+    @UniqueUsername
     private String userName;
+    @NotEmpty(message ="password can't be null or empty")
     @Column
     private String password;
 

@@ -14,18 +14,21 @@ import java.util.List;
 public class PatientServiceImpl implements PatientService {
     @Autowired
     private PatientRepo repo;
+
+//  return  list of all patients from database
     @Override
     public List<Patient> getAll() {
         return  repo.findAll();
     }
 
+//    save patient data in database
     @Override
     public Patient add(Patient patient) {
         return  repo.save(patient);
     }
 
 
-
+//    get patient data from database based on patientId
     @Override
     public Patient getPatient(Long patientId) {
         return repo.findById(patientId).orElseThrow(() ->

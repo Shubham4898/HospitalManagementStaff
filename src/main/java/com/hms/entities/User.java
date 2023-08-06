@@ -2,6 +2,8 @@ package com.hms.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -16,9 +18,9 @@ public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column
+    @Column @NotEmpty(message = "name can't be empty")
     private String name;
-    @Column
+    @Column @Min(18)
     private int age;
     @Column
     private String phoneNumber;

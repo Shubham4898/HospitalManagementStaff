@@ -7,6 +7,10 @@ import com.hms.entities.HospitalStaff;
 import com.hms.security.JwtTokenHelper;
 import com.hms.service.AuthService;
 import com.hms.service.UserService;
+import com.hms.validations.UniqueUsername;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/auth")
 @RestController
+@Tag(name = "Authentication")
 public class AuthController {
 
 
@@ -34,9 +39,12 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @RequestMapping("/login")
-    @PostMapping
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+     @Operation(
+             description = " Login controller",
+             summary = "Post request  to login using username and password"
+     )
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
 
         authService.doAuthenticate(request.getUserName(), request.getPassword());
 
@@ -50,8 +58,12 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Operation(
+            description = " Signup controller",
+            summary = "Post request for hospital staff to add there data in database"
+    )
     @PostMapping("/signup")
-    public ResponseEntity<UserDetailsDto> signUp(@RequestBody HospitalStaff user) {
+    public ResponseEntity<UserDetailsDto> signUp(@Valid @RequestBody HospitalStaff user) {
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(userService.signup(user));
     }

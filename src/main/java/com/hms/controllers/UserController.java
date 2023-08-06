@@ -7,14 +7,10 @@ import com.hms.entities.AdmissionType;
 import com.hms.entities.HospitalStaff;
 import com.hms.security.JwtTokenHelper;
 import com.hms.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +23,10 @@ public class UserController {
     private UserService userService;
 
 
+    @Operation(
+            description = "Get Hospital Staff controller",
+            summary = "Get request to fetch all hospital Staff"
+    )
     @GetMapping("/all")
     public ResponseEntity<List<UserDetailsDto>> getAllStaffMembers() {
         try {
@@ -36,6 +36,10 @@ public class UserController {
         }
     }
 
+    @Operation(
+            description = "Get Types of admission in hospital",
+            summary = "get request to find all types of patients"
+    )
     @GetMapping("/admissionType")
     ResponseEntity<List<AdmissionType>> getAllAdmissionTye(){
       return  ResponseEntity.ok().body(userService.getAllAdmissionType());

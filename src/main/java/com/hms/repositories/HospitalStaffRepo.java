@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface HospitalStaffRepo extends JpaRepository<HospitalStaff,Long> {
 
     Optional<HospitalStaff> findHospitalStaffByUserName(String userName);
+//    HospitalStaff findHospitalStaffByUserName(String username);
 }
