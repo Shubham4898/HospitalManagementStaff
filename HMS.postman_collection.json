@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "df4f6360-3dd6-4bf5-891c-46f6f52cceca",
+		"name": "HMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8084/auth/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Abhishek\",\r\n  \"age\": 25,\r\n  \"phoneNumber\": \"123-456-7890\",\r\n  \"address\": \"123 Main St\",\r\n  \"username\" : \"a@123\",\r\n  \"password\" : \"123456\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8084/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Patient",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbkAxMjMiLCJpYXQiOjE2OTAzNzg2NDgsImV4cCI6MTY5MDM5NjY0OH0.6TBTAyh9XNO--YIY8c6m_R34cTyIQEqdyvGGifJfTLAZrcOVUuASNKBWl4UZAMXRfMsz3ZALFOSD5ap5jD9efQ",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8084/patient/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"patient",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Patient",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "AdmitPatient",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get AdmissionType",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Discharge Patient",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
